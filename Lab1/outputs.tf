@@ -9,3 +9,11 @@ output "environment_name" {
 output "get_from_locals" {
   value = local.resource_group_name
 }
+
+output "suffix" {
+  value = random_string.suffix.result
+}
+
+output "anotherAppEnvRandom" {
+  value = local.anotherAppEnvRandom
+}

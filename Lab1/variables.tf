@@ -10,6 +10,7 @@ variable "environment_name" {
 
 locals {
   resource_group_name = "${var.application_name}-${var.environment_name}-rg"
+  anotherAppEnvRandom = "${var.application_name}-${var.environment_name}-${random_string.suffix.result}"
 }
 
 resource "azurerm_resource_group" "main" {
