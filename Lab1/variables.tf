@@ -8,6 +8,10 @@ variable "environment_name" {
 
 }
 
+variable "api_key" {
+  sensitive = true
+}
+
 locals {
   resource_group_name = "${var.application_name}-${var.environment_name}-rg"
   anotherAppEnvRandom = "${var.application_name}-${var.environment_name}-${random_string.suffix.result}"

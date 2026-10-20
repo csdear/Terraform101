@@ -17,3 +17,8 @@ output "suffix" {
 output "anotherAppEnvRandom" {
   value = local.anotherAppEnvRandom
 }
+
+output "api_key" {
+  value     = var.api_key
+  sensitive = true
+}
