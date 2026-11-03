@@ -1,6 +1,11 @@
 variable "application_name" {
   description = "The name of the application."
   type        = string
+
+  validation {
+    condition     = length(var.application_name) > 0
+    error_message = "The application name must not be empty."
+  }
 }
 
 variable "environment_name" {
@@ -15,6 +20,13 @@ variable "api_key" {
 
 variable "instance_count" {
   type = number
+
+  validation {
+    condition     = var.instance_count >= local.min_nodes && var.instance_count <= local.max_nodes && var.instance_count % 2 != 0
+    error_message = "Must be between 5 and 9 and never even!"
+    // condition     = var.intance_count > 1 && var.instance_count < 10
+    // error_message = "Must be between 1 and 10"
+  }
 }
 
 variable "enabled" {
@@ -36,10 +48,7 @@ variable "sku_settings" {
   })
 }
 
-locals {
-  resource_group_name = "${var.application_name}-${var.environment_name}-rg"
-  anotherAppEnvRandom = "${var.application_name}-${var.environment_name}-${random_string.suffix.result}"
-}
+
 
 resource "azurerm_resource_group" "main" {
   name     = local.resource_group_name
