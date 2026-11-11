@@ -12,8 +12,18 @@ locals {
   anotherAppEnvRandom = "${var.application_name}-${var.environment_name}-${random_string.suffix.result}"
 }
 
-resource "random_string" "list" {
-  count = length(var.regions)
+# Iterate via list, over indexes
+# resource "random_string" "list" {
+#   count = length(var.regions)
+
+#   length  = 6
+#   upper   = false
+#   special = false
+# }
+
+# Iterate via map, over key-value pairs
+resource "random_string" "map" {
+  for_each = var.region_instance_count
 
   length  = 6
   upper   = false

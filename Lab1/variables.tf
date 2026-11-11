@@ -38,7 +38,7 @@ variable "regions" {
 }
 
 variable "region_instance_count" {
-  type = map(any)
+  type = map(string)
 }
 
 variable "sku_settings" {

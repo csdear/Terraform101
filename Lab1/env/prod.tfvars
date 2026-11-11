@@ -1,7 +1,11 @@
 environment_name = "prod"
 instance_count   = 7
 enabled          = false
-regions          = ["westus", "eastus", "westus"]
+
+# a list collection type, iterate with count
+regions = ["westus", "eastus", "westus"]
+
+# a map collection type, iterate with for_each
 region_instance_count = {
   "westus" = 4
   "eastus" = 8
