@@ -1,6 +1,6 @@
 environment_name = "prod"
 instance_count   = 7
-enabled          = false
+enabled          = true
 
 # a list collection type, iterate with count
 regions = ["westus", "eastus", "westus"]
