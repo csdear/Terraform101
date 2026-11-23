@@ -44,3 +44,7 @@ output "alpha" {
 output "beta" {
   value = module.alpha.random_string
 }
+
+output "charlie" {
+  value = module.charlie.random_string
+}
